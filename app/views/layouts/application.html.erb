@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="menu">
+        <%= active_link_to 'Movie lists', lists_path, active: :exclusive %>
+        <%= active_link_to 'Create a list', new_list_path, active: :exclusive %>
+    </div>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
