@@ -1,0 +1,61 @@
+@font-face {
+  font-family: Unica;
+  src: url(Unica78Web-Regular.woff2);
+}
+
+:root {
+  --main-color: yellow;
+  //--neutral-color: #f8f4ec;
+  --neutral-color:#f8f8f8;
+  --gray-color: #c7c7c7;
+}
+
+body {
+  background-color: white;
+  font-family: Unica, Helvetica, Arial, sans-serif;
+  // letter-spacing: 0.03em;
+  font-size: 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+section  {
+  margin: 1em;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  font-size: inherit;
+  font-family: inherit;
+  text-align: center;
+  margin: 1em 0 2em;
+}
+
+.button {
+  margin-top: 1em;
+  padding: 0;
+  background-color: none;
+  background: transparent;
+  -webkit-appearance: none;
+  border: 0;
+}
+
+.new {
+  margin: 0;
+  padding: 1em;
+  background-color: var(--gray-color);
+  min-height: 100vh;
+
+  form {
+    max-width: 800px;
+    margin: auto;
+  }
+
+}

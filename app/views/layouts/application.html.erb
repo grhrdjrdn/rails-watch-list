@@ -12,9 +12,14 @@
 
   <body>
 
+
     <div class="menu">
-        <%= active_link_to 'Movie lists', lists_path, active: :exclusive %>
-        <%= active_link_to 'Create a list', new_list_path, active: :exclusive %>
+      <% if !current_page?(lists_path) && !current_page?('/') %>
+        <%= link_to 'Show lists', lists_path %>
+      <% end %>
+      <% if !current_page?(new_list_path) %>
+        <%= link_to 'Create a list', new_list_path %>
+      <% end %>
     </div>
 
     <div class="content">

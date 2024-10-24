@@ -2,39 +2,69 @@
   <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
 </div>
 
-<h1><%= @list.name %></h1>
+<section>
 
-<div class='movielist'>
-  <% @list.bookmarks.each do |bookmark| %>
-    <div class='moviecard'>
-      <%= image_tag("https://image.tmdb.org/t/p/w500/#{bookmark.movie.poster_url}") %>
-      <div class="details">
-        <p><%= bookmark.movie.title %></p>
-        <p><%= bookmark.comment %></p>
-      </div>
-      <div class="topleft">
-        <div class='rating'><%= bookmark.movie.rating.round(1)%></div>
-        <%= link_to "Delete",
-          bookmark_path(bookmark),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-          class: "delete"
-        %>
-      </div>
-    </div>
-  <% end %>
-</div>
+  <ul class='movielist'>
 
-<div class="reviewlist">
-  <% @list.reviews.each do |review| %>
     <div>
-      <p><%= review.comment %></p>
-      <p><%= review.rating %></p>
+      <div class='circle' style="background-image: url('<%= cl_image_path @list.photo.key, height: 520, width: 520, crop: :thumb, gravity: :face %>')">
+        <p><%= @list.name %></p>
+      </div>
     </div>
-  <% end %>
-</div>
 
-<%= simple_form_for [@list, @review] do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating %>
-  <%= f.submit %>
-<% end %>
+    <% if @list.bookmarks.size == 0 %>
+      <p>No movies added</p>
+    <% end %>
+
+    <% @list.bookmarks.each do |bookmark| %>
+      <li class='moviecard'>
+        <%= image_tag("https://image.tmdb.org/t/p/w500/#{bookmark.movie.poster_url}") %>
+        <div class="details">
+          <p><%= bookmark.movie.title %></p>
+          <p><%= bookmark.comment %></p>
+        </div>
+        <div class="topleft">
+          <div class='rating'><%= bookmark.movie.rating.round(1)%></div>
+          <%= link_to "Delete",
+            bookmark_path(bookmark),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "delete"
+          %>
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+
+</section>
+
+<section class="reviews" id="reviews">
+
+  <div>
+    <h1>Add a Review</h1>
+    <%= simple_form_for [@list, @review] do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating %>
+      <%= f.submit "Submit", class: "button" %>
+    <% end %>
+  </div>
+
+  <div class="reviewlist">
+    <% if @list.reviews.size != 0 %>
+      <h1>Reviews</h1>
+    <% else %>
+      <h1>No reviews yet</h1>
+    <% end %>
+    <% @list.reviews.each do |review| %>
+      <div class='review'>
+        <div class='pill'>
+          <% review.rating.times do %>
+            ⭐️
+          <% end %>
+        </div>
+        <div class='pill'><%= review.comment %></div>
+      </div>
+    <% end %>
+  </div>
+
+</section>

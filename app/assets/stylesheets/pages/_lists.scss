@@ -1,0 +1,33 @@
+.index {
+  margin: 1em;
+  display: block;
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--main-color);
+  }
+
+  .card-list {
+    display: flex;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+}

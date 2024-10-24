@@ -1,0 +1,30 @@
+.reviews {
+  margin: 0;
+  padding: 1em 1em 3em;
+  background-color: var(--gray-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+
+  h1 {
+    text-align: center;
+    margin: 1em 0 2em;
+  }
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.pill {
+  background-color: white;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.review:hover .pill {
+  background-color: var(--main-color);
+}

@@ -1,7 +1,12 @@
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <%= link_to list.name, list_path(list) %>
-    </li>
-  <% end %>
-</ul>
+<div class="index">
+  <ul>
+    <% @lists.each do |list| %>
+      <li>
+        <%= link_to list_path(list), class: "card-list",
+        style: "background-image: url('#{ cl_image_path list.photo.key, height: 520, crop: :fill }')" do %>
+          <p><%= list.name %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

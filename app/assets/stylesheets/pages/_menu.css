@@ -1,0 +1,39 @@
+.menu,
+.secondary_menu a {
+  position: fixed;
+  padding: 1em;
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  text-decoration: none;
+  z-index: 1;
+}
+
+.menu {
+  bottom: 1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  display: flex;
+  gap: 0.6em;
+  background-color: #f6978d;
+
+  a {
+    text-decoration: none;
+  }
+
+  .active {
+    color: yellow;
+  }
+}
+
+.secondary_menu a {
+  position: fixed;
+  top: 1.5em;
+  right: 1.5em;
+  background-color: #00ae5c;
+}
+
+.menu a:hover,
+.secondary_menu a:hover {
+  color: yellow;
+}

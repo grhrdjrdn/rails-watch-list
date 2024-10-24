@@ -73,3 +73,5 @@ gem "simple_form"
 gem "sassc-rails"
 
 gem 'active_link_to'
+
+gem "cloudinary"
